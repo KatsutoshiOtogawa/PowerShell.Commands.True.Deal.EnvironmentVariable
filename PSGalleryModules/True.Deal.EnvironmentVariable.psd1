@@ -4,7 +4,7 @@ Author="OtogawaKatsutoshi"
 Copyright="Copyright (c) OtogawaKatsutoshi"
 Description="Windows True Environment"
 ModuleVersion="0.4.1.0"
-CompatiblePSEditions = @("Core", "Desktop")
+# CompatiblePSEditions = @("Core", "Desktop")
 PowerShellVersion="4.0"
 NestedModules="PowerShell.Commands.True.Deal.EnvironmentVariable.dll"
 HelpInfoURI = 'https://github.com/KatsutoshiOtogawa/True.Deal.EnvironmentVariable'
@@ -21,7 +21,7 @@ PrivateData = @{
 			,"EnvironmentVariable"
 			,"Windows"
 		)
-		# LicenseUri = 
+		LicenseUri ='https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/licenses/LICENSE.txt' 
 
 		ProjectUri = 'https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable'
 
