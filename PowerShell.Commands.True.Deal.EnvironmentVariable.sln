@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSGalleryModules", "PSGalleryModules\PSGalleryModules.csproj", "{7583FFE6-E080-4CAA-964E-EDCAD8366C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PSGalleryModules", "PSGalleryModules\PSGalleryModules.csproj", "{7583FFE6-E080-4CAA-964E-EDCAD8366C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResGen", "ResGen\ResGen.csproj", "{A3D6F321-0FFB-4DBE-B996-5B3292C9FB03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResGen", "ResGen\ResGen.csproj", "{A3D6F321-0FFB-4DBE-B996-5B3292C9FB03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerShell.Commands.True.Deal.EnvironmentVariable", "PowerShell.Commands.True.Deal.EnvironmentVariable\PowerShell.Commands.True.Deal.EnvironmentVariable.csproj", "{3548E5BC-BBEA-4686-952B-491707D719E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerShell.Commands.True.Deal.EnvironmentVariable", "PowerShell.Commands.True.Deal.EnvironmentVariable\PowerShell.Commands.True.Deal.EnvironmentVariable.csproj", "{3548E5BC-BBEA-4686-952B-491707D719E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34C1BBC3-30E7-4AF0-A738-6E1197DA495F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7583FFE6-E080-4CAA-964E-EDCAD8366C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +34,11 @@ Global
 		{3548E5BC-BBEA-4686-952B-491707D719E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3548E5BC-BBEA-4686-952B-491707D719E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3548E5BC-BBEA-4686-952B-491707D719E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18E84624-D221-4A48-B192-96469657A719}
 	EndGlobalSection
 EndGlobal
