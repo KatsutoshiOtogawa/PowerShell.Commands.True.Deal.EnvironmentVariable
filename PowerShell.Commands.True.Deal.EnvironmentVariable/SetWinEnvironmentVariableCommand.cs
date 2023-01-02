@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Management.Automation;
+using System.Reflection;
 #if NET6_0_OR_GREATER
 using System.Runtime.Versioning;
 #endif
@@ -18,7 +19,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// This cmdlet gets the content from EnvironmentVariable.
     /// </summary>
     [SupportedOSPlatform("windows")]
-    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
     public class SetWinEnvironmentVariableCommand : PSCmdlet
     {
         /// <summary>
@@ -366,7 +367,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// Defines the implementation of the 'Set-WinEnvironmentVariable' cmdlet.
     /// This cmdlet gets the content from EnvironmentVariable.
     /// </summary>
-    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
     public class SetWinEnvironmentVariableCommand : PSCmdlet
     {
         /// <summary>
@@ -549,6 +550,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                 {
                     // internal classなので無理。
                     // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                    var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                    ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                 }
 
                 if (_contentList.Count == 1 && string.IsNullOrEmpty(_contentList[0]) && !Append)
@@ -633,6 +636,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                 {
                     // internal classなので無理。
                     // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                    var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                    ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                     if (Target == EnvironmentVariableTarget.Process)
                     {
                         System.Environment.SetEnvironmentVariable(Name, result, Target);
@@ -685,6 +690,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
             {
                 // internal memberなので無理
                 // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.High;
+                var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.High;
                 regkey?.Close();
             }
         }
