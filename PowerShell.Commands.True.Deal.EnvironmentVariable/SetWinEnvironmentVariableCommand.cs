@@ -200,6 +200,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                 {
                     // internal classなので無理。
                     // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                    var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                    ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                 }
 
                 if (_contentList.Count == 1 && string.IsNullOrEmpty(_contentList[0]) && !Append)
@@ -209,6 +211,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                     {
                         // internal classなので無理。
                         // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                        var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                        ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                         if (Target == EnvironmentVariableTarget.Process)
                         {
                             System.Environment.SetEnvironmentVariable(Name, null, Target);
@@ -280,6 +284,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                 {
                     // internal classなので無理。
                     // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                    var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                    ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                     if (Target == EnvironmentVariableTarget.Process)
                     {
                         System.Environment.SetEnvironmentVariable(Name, result, Target);
@@ -331,6 +337,8 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
             {
                 // internal memberなので無理
                 // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.High;
+                var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.High;
                 regkey?.Close();
             }
         }
@@ -453,13 +461,12 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                         if (Type != RegistryValueKind.String && Type != RegistryValueKind.ExpandString)
                         {
                             Type = RegistryValueKind.None;
-                            var setWinEnvironmentVariableShouldProcessTarget = "Stringtestです";
-                            // setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.RegistryKindValueWrong, Name);
-                            // var message = string.Format(
-                            //    CultureInfo.CurrentCulture,
-                            //    WinEnvironmentVariableResources.RegistryKindValueWrong
-                            // );
-                            var message = "messageを使う";
+                            var setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.RegistryKindValueWrong, Name);
+                            var message = string.Format(
+                               CultureInfo.CurrentCulture,
+                               WinEnvironmentVariableResources.RegistryKindValueWrong
+                            );
+                            // var message = "messageを使う";
                             var argumentException = new RuntimeException(message);
                             ErrorRecord errorRecord = new ErrorRecord(
                                 argumentException,
@@ -556,12 +563,14 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
 
                 if (_contentList.Count == 1 && string.IsNullOrEmpty(_contentList[0]) && !Append)
                 {
-                    // setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.WinEnvironmentVariableRemoved, Name);
-                    setWinEnvironmentVariableShouldProcessTarget = "String format";
+                    setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.WinEnvironmentVariableRemoved, Name);
+                    // setWinEnvironmentVariableShouldProcessTarget = "String format";
                     if (Force || ShouldProcess(setWinEnvironmentVariableShouldProcessTarget, "Set-WinEnvironmentVariable"))
                     {
                         // internal classなので無理。
                         // this.CommandInfo.CommandMetadata.ConfirmImpact = ConfirmImpact.Medium;
+                        var commandInfo = (CommandInfo)this.GetType().GetProperty("CommandInfo", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(this);
+                        ((CommandMetadata)commandInfo.GetType().GetProperty("CommandMetadata", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).GetValue(commandInfo)).ConfirmImpact = ConfirmImpact.Medium;
                         if (Target == EnvironmentVariableTarget.Process)
                         {
                             System.Environment.SetEnvironmentVariable(Name, null, Target);
@@ -574,13 +583,12 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                                 Environment.WinSetEnvironmentVariable(Name, string.Empty, Target);
                             } catch (SecurityException ex)
                             {
-                                // var message = string.Format(
-                                //    CultureInfo.CurrentCulture,
-                                //    Name,
-                                //    WinEnvironmentVariableResources.CantSetWinEnvironmentVariable,
-                                //    Target
-                                //);
-                                var message = "cantSetWinEnvironmentVariable";
+                                var message = string.Format(
+                                   CultureInfo.CurrentCulture,
+                                   Name,
+                                   WinEnvironmentVariableResources.CantSetWinEnvironmentVariable,
+                                   Target
+                                );
                                 var argumentException = new SecurityException(message, ex.InnerException);
                                 ErrorRecord errorRecord = new ErrorRecord(
                                     argumentException,
@@ -600,11 +608,10 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
 
                 if (Target != EnvironmentVariableTarget.Process && string.IsNullOrEmpty(result) && Type == RegistryValueKind.None)
                 {
-                    // var message = string.Format(
-                    //   CultureInfo.CurrentCulture,
-                    //   WinEnvironmentVariableResources.RegistryKindValueWrong, Name
-                    // );
-                    var message = "RegistryKindValueWrong";
+                    var message = string.Format(
+                      CultureInfo.CurrentCulture,
+                      WinEnvironmentVariableResources.RegistryKindValueWrong, Name
+                    );
 
                     var argumentException = new RuntimeException(message);
                     ErrorRecord errorRecord = new ErrorRecord(
@@ -619,8 +626,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
 
                 if (string.IsNullOrEmpty(Delimiter.ToString()))
                 {
-                    // setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.SetWinEnvironmentVariable, result, Name, Type);
-                    setWinEnvironmentVariableShouldProcessTarget = "result Name";
+                    setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.SetWinEnvironmentVariable, result, Name, Type);
                 }
                 else
                 {
@@ -628,8 +634,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
 
                     Regex symbol2newLine = new Regex(Delimiter.ToString());
                     string verboseString = symbol2newLine.Replace(result, System.Environment.NewLine) + System.Environment.NewLine;
-                    // setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.SetMultipleEnvironmentVariable, Name, Type, Delimiter, verboseString);
-                    setWinEnvironmentVariableShouldProcessTarget = "SetMultipleEnvironment";
+                    setWinEnvironmentVariableShouldProcessTarget = string.Format(CultureInfo.InvariantCulture, WinEnvironmentVariableResources.SetMultipleEnvironmentVariable, Name, Type, Delimiter, verboseString);
                 }
 
                 if (Force || ShouldProcess(setWinEnvironmentVariableShouldProcessTarget, "Set-WinEnvironmentVariable"))
@@ -651,13 +656,12 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
                         } 
                         catch (SecurityException ex)
                         {
-                            // var message = string.Format(
-                            //     CultureInfo.CurrentCulture,
-                            //     WinEnvironmentVariableResources.CantSetWinEnvironmentVariable,
-                            //     Name,
-                            //     Target
-                            // );
-                            var message = "cantSetWinEnvironmentVariable";
+                            var message = string.Format(
+                                CultureInfo.CurrentCulture,
+                                WinEnvironmentVariableResources.CantSetWinEnvironmentVariable,
+                                Name,
+                                Target
+                            );
 
                             SecurityException argumentException = new SecurityException(message, ex.InnerException);
                             ErrorRecord errorRecord = new ErrorRecord(
@@ -704,12 +708,10 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
         {
             if (string.IsNullOrEmpty(Delimiter.ToString()) && (Append || _contentList.Count > 1))
             {
-                // var message = string.Format(
-                //     CultureInfo.CurrentCulture,
-                //     WinEnvironmentVariableResources.DelimterNotDetected
-                // );
-
-                var message = "DelimiterNotDetected";
+                var message = string.Format(
+                    CultureInfo.CurrentCulture,
+                    WinEnvironmentVariableResources.DelimterNotDetected
+                );
 
                 ArgumentException argumentException = new ArgumentException(message);
                 ErrorRecord errorRecord = new ErrorRecord(
