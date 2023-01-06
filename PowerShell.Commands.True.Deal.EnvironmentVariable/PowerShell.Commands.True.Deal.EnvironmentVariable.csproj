@@ -6,7 +6,7 @@
     <Copyright>Copyright (c) 2022 OtogawaKatsutoshi</Copyright>
 	<PackageProjectUrl>https://github.com/KatsutoshiOtogawa/True.Deal.EnvironmentVariable</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KatsutoshiOtogawa/True.Deal.EnvironmentVariable</RepositoryUrl>
-	<VersionPrefix>0.3.1</VersionPrefix>
+	<VersionPrefix>0.6.0</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
     <Description>
 		A library that gives windows os the correct operations on environment variables. powershell commandlet
@@ -22,7 +22,7 @@
 
 	<ItemGroup>
     <PackageReference Include="PowerShellStandard.Library" Version="7.0.0-preview.1" />
-    <PackageReference Include="True.Deal.EnvironmentVariable" Version="0.4.1-alpha" />
+    <PackageReference Include="True.Deal.EnvironmentVariable" Version="0.6.0" />
   </ItemGroup>
 
 </Project>

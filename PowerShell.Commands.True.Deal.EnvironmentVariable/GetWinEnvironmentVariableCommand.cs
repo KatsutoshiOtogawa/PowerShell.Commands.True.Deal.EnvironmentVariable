@@ -19,7 +19,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// This cmdlet get the content from EnvironemtVariable.
     /// </summary>
     [SupportedOSPlatform("windows")]
-    [Cmdlet(VerbsCommon.Get, "WinEnvironmentVariable", DefaultParameterSetName = "DefaultSet", HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Get-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Get, "WinEnvironmentVariable", DefaultParameterSetName = "DefaultSet", HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/blob/master/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Get-WinEnvironmentVariable.md")]
     [OutputType(typeof(PSObject), ParameterSetName = new[] { "DefaultSet" })]
     [OutputType(typeof(string), ParameterSetName = new[] { "RawSet" })]
     public class GetWinEnvironmentVariableCommand : PSCmdlet
@@ -146,7 +146,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// Defines the implementation of the 'Get-WinEnviromentVariable' cmdlet.
     /// This cmdlet get the content from EnvironemtVariable.
     /// </summary>
-    [Cmdlet(VerbsCommon.Get, "WinEnvironmentVariable", DefaultParameterSetName = "DefaultSet", HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Get-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Get, "WinEnvironmentVariable", DefaultParameterSetName = "DefaultSet", HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/blob/master/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Get-WinEnvironmentVariable.md")]
     [OutputType(typeof(PSObject), ParameterSetName = new[] { "DefaultSet" })]
     [OutputType(typeof(string), ParameterSetName = new[] { "RawSet" })]
     public class GetWinEnvironmentVariableCommand : PSCmdlet

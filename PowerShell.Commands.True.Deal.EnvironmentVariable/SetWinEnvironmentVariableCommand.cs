@@ -19,7 +19,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// This cmdlet gets the content from EnvironmentVariable.
     /// </summary>
     [SupportedOSPlatform("windows")]
-    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/blob/master/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
     public class SetWinEnvironmentVariableCommand : PSCmdlet
     {
         /// <summary>
@@ -375,7 +375,7 @@ namespace True.Deal.EnvironmentVariable.PowerShell.Commands
     /// Defines the implementation of the 'Set-WinEnvironmentVariable' cmdlet.
     /// This cmdlet gets the content from EnvironmentVariable.
     /// </summary>
-    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
+    [Cmdlet(VerbsCommon.Set, "WinEnvironmentVariable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, HelpUri = "https://github.com/KatsutoshiOtogawa/PowerShell.Commands.True.Deal.EnvironmentVariable/blob/master/PowerShell.Commands.True.Deal.EnvironmentVariable/Help/Set-WinEnvironmentVariable.md")]
     public class SetWinEnvironmentVariableCommand : PSCmdlet
     {
         /// <summary>
